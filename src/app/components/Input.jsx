@@ -1,33 +1,10 @@
 "use client";
 import { useEffect, useState } from "react";
 
-export default function Input() {
-  const [cities, setCities] = useState([]);
-  const [searched, setSearched] = useState([]);
-
-  async function getData() {
-    const result = await fetch("https://countriesnow.space/api/v0.1/countries");
-    const data = await result.json();
-    let incomeCities = data.data.map((country) => {
-      return country.cities;
-    });
-    incomeCities = incomeCities.flat();
-    setCities(incomeCities);
-  }
-  useEffect(() => {
-    getData();
-  }, []);
-
-  const searchHandler = (e) => {
-    const search = e.target.value;
-    const filtred = cities.filter((city) => {
-      return city.includes(search);
-    });
-    setSearched(filtred);
-  };
+export default function Input({ searchHandler, searched, setName }) {
   return (
-    <div>
-      <div className="absolute flex gap-4 rounded-full text-black bg-[#fff] mt-6 w-[567px] p-4 z-[100]">
+    <div className="absolute top-10 left-10 z-[999]">
+      <div className="flex gap-4 rounded-full text-black bg-[#fff] w-[567px] p-4 z-[100]">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="48"
@@ -44,15 +21,15 @@ export default function Input() {
         </svg>
         <input
           type="text"
-          Search
+          placeholder="Search"
           className="border-2 border-none"
           onChange={searchHandler}
         />
       </div>
-      <div className="bg-green-500">
-        {searched.length > 0 &&
-          searched.slice(0, 10).map((city) => (
-            <div className="flex">
+      {searched.length && (
+        <div className="bg-white text-black w-[567px] mt-4 z-30 rounded-2xl p-6 font-bold">
+          {searched.slice(0, 3).map((city) => (
+            <div className="flex" onClick={() => getCityName(city)}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="40"
@@ -71,10 +48,17 @@ export default function Input() {
                   />
                 </g>
               </svg>
-              <p>{city}</p>
+              <p
+                onClick={() => {
+                  getCityName(city);
+                }}
+              >
+                {city}
+              </p>
             </div>
           ))}
-      </div>
+        </div>
+      )}
     </div>
   );
 }
