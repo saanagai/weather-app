@@ -10,13 +10,13 @@ import { useEffect, useState } from "react";
 export default function Home() {
   const [cities, setCities] = useState([]);
   const [searched, setSearched] = useState([]);
-  const [cityName, setCityName] = useState("Ulaanbaatar");
+  const [city, setCity] = useState("Ulaanbaatar");
 
   async function getRender(city) {
     const result = await fetch(
       `https://api.weatherapi.com/v1/forecast.json?key=52ff2deedf234401b5830818250901&q=${city}`
     );
-    const data = result.json();
+    const data = await result.json();
   }
 
   async function getData() {
@@ -44,11 +44,9 @@ export default function Home() {
       setSearched(filtred);
     }
   };
-  function getCityName() {
-    setCityName(city);
-  }
+
   return (
-    <div className="relative w-[100vw] h-[100vh] overflow-hidden">
+    <div className="relative flex w-[100vw] h-[100vh] overflow-hidden">
       {/* <Border /> */}
       <div className="flex content-center justify-center">
         <MiddleCircle />
@@ -57,7 +55,7 @@ export default function Home() {
         <Input
           searchHandler={searchHandler}
           searched={searched}
-          setName={setCityName}
+          setCity={setCity}
         />
       </div>
 
