@@ -1,3 +1,4 @@
+"use client";
 export const MiddleCircle = () => {
   return (
     <div className="absolute -top-[20%] flex rounded-full w-[1740px] h-[1740px] border-2 justify-center items-center">

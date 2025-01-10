@@ -1,7 +1,14 @@
 "use client";
 import { useEffect, useState } from "react";
 
-export default function Input({ searchHandler, searched, setName }) {
+export default function Input({
+  searchHandler,
+  searched,
+  setName,
+  getCityName,
+  empty,
+  setEmpty,
+}) {
   return (
     <div className="absolute top-10 left-10 z-[999]">
       <div className="flex gap-4 rounded-full text-black bg-[#fff] w-[567px] p-4 z-[100]">
@@ -22,8 +29,8 @@ export default function Input({ searchHandler, searched, setName }) {
         <input
           type="text"
           placeholder="Search"
-          className="border-2 border-none"
           onChange={searchHandler}
+          value={empty}
         />
       </div>
       {searched.length && (
