@@ -2,7 +2,6 @@
 
 import { LeftSide } from "./components/leftSide";
 import { RightSide } from "./components/rightSide";
-// import { Border } from "./components/Border";
 import { MiddleCircle } from "./components/MiddleCircle";
 import Input from "./components/Input";
 import { useEffect, useState } from "react";
@@ -33,6 +32,7 @@ export default function Home() {
     setFeelDay(data.forecast.forecastday[0].day.condition.text);
     setFeelNight(data.forecast.forecastday[0].hour[21].condition.text);
     setDate(data.forecast.forecastday[0].date);
+    setLoading(false);
     console.log(data.forecast.forecastday[0].hour[21].condition.text);
     console.log(data.forecast.forecastday[0].day.condition.text);
   }
@@ -71,11 +71,13 @@ export default function Home() {
   };
 
   return (
-    <div className="relative flex w-[100vw] h-[100vh] overflow-hidden">
-      {/* <Border /> */}
-      <div className="flex content-center justify-center">
-        <MiddleCircle />
+    <div className="relative flex w-[100vw] h-[100vh] overflow-hidden ">
+      <div>
+        <img src="./orangeMoon.svg" alt="absolute w-[176px] h-[176px] z-20" />
       </div>
+
+      <MiddleCircle />
+
       <div>
         <Input
           searchHandler={searchHandler}
@@ -94,8 +96,7 @@ export default function Home() {
         feelNight={feelNight}
         date={date}
       />
-
-      <div className="absolute">Middle Circle</div>
+      <div className="flex flex-end absolute "></div>
     </div>
   );
 }

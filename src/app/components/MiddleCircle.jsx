@@ -1,5 +1,5 @@
 "use client";
-export const MiddleCircle = () => {
+export function MiddleCircle() {
   return (
     <div className="absolute -top-[20%] flex rounded-full w-[1740px] h-[1740px] border-2 justify-center items-center">
       <div className="flex rounded-full w-[1340px] h-[1340px] border-2 justify-center items-center">
@@ -38,4 +38,4 @@ export const MiddleCircle = () => {
       </div>
     </div>
   );
-};
+}
