@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 export default function Input({ searchHandler, searched, getCityName, empty }) {
   return (
-    <div className="absolute top-10 left-10 z-[999]">
+    <div className="absolute  left-10 z-[999] mt-[120px] ml-[100px]">
       <div className="flex gap-4 rounded-full text-black bg-[#fff] w-[567px] p-4 z-[100]">
         <img src="./search.svg" alt="" />
         <input

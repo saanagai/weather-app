@@ -4,7 +4,7 @@ import { Celsius } from "./Celsius";
 
 export const LeftCard = ({ cities, temp, feelDay, date }) => {
   return (
-    <div className=" absolute w-[414px] h-[828px] text-transparent rounded-[48px] shadow-lg ">
+    <div className="w-[414px] h-[828px] bg-white/80 rounded-[48px] shadow-lg relative ">
       <div className="w-[414px] h-[514px]  px-10 py-14 ">
         <p className="text-[#6B7280]">{date}</p>
         <div className="flex flex-row text-black justify-between font-bold text-5xl ">
