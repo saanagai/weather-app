@@ -16,8 +16,8 @@ export default function Home() {
   const [feelNight, setFeelNight] = useState("");
   const [date, setDate] = useState([]);
   const [empty, setEmpty] = useState("");
-  const [loading, setLoading] = useState("");
-  const [dayIcons, setDayIcons] = useState("");
+  // const [loading, setLoading] = useState("");
+  // const [dayIcons, setDayIcons] = useState("");
   // city === "Tokyo"
   // setCity("Ulaanbaatar")
   //city ==="Ulaanbaatar"
@@ -28,13 +28,13 @@ export default function Home() {
       `https://api.weatherapi.com/v1/forecast.json?key=52ff2deedf234401b5830818250901&q=${city}`
     );
     const data = await result.json();
-    console.log(data.forecast.forecastday[0].day.maxtemp_c);
+    // console.log(data.forecast.forecastday[0].day.maxtemp_c);
     setTemp(data.current.temp_c);
     setNight(data.forecast.forecastday[0].hour[0].temp_c);
     setFeelDay(data.forecast.forecastday[0].day.condition.text);
     setFeelNight(data.forecast.forecastday[0].hour[21].condition.text);
     setDate(data.forecast.forecastday[0].date);
-    setLoading(false);
+    // setLoading(false);
     // setDayIcons(data.current.);
     console.log(data.forecast.forecastday[0].hour[21].condition.text);
     console.log(data.forecast.forecastday[0].day.condition.text);
