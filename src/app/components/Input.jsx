@@ -1,6 +1,3 @@
-"use client";
-import { useEffect, useState } from "react";
-
 export default function Input({ searchHandler, searched, getCityName, empty }) {
   return (
     <div className="absolute  left-10 z-[999] mt-[120px] ml-[100px]">
@@ -15,8 +12,8 @@ export default function Input({ searchHandler, searched, getCityName, empty }) {
       </div>
       {searched.length && (
         <div className="bg-white text-black w-[567px] mt-4 z-30 rounded-2xl p-6 font-bold">
-          {searched.slice(0, 3).map((city) => (
-            <div className="flex" onClick={() => getCityName(city)}>
+          {searched.slice(0, 3).map((city, index) => (
+            <div key={index} className="flex" onClick={() => getCityName(city)}>
               <img src="./search.svg" alt="" />
               <p
                 onClick={() => {

@@ -1,10 +1,10 @@
 "use client";
 
-import { LeftSide } from "./components/leftSide";
-import { RightSide } from "./components/rightSide";
 import { MiddleCircle } from "./components/MiddleCircle";
 import Input from "./components/Input";
 import { useEffect, useState } from "react";
+import { RightSection } from "./components/RightSection";
+import { LeftSection } from "./components/LeftSection";
 
 export default function Home() {
   const [cities, setCities] = useState([]);
@@ -89,8 +89,8 @@ export default function Home() {
         setEmpty={setEmpty}
       />
 
-      <LeftSide cities={city} temp={temp} feelDay={feelDay} date={date} />
-      <RightSide
+      <LeftSection cities={city} temp={temp} feelDay={feelDay} date={date} />
+      <RightSection
         cities={city}
         night={night}
         feelNight={feelNight}
